@@ -61,16 +61,10 @@ public interface Future<T> extends AsyncResult<T> {
   /**
    * Like {@link #all(Future, Future)} but with 5 futures.
    */
-  static CompositeFuture all(Future<?> f1, Future<?> f2, Future<?> f3, Future<?> f4, Future<?> f5) {
-    return CompositeFutureImpl.all(f1, f2, f3, f4, f5);
+  static CompositeFuture all(Future<?>... futures) {
+    return CompositeFutureImpl.all(futures);
   }
 
-  /**
-   * Like {@link #all(Future, Future)} but with 6 futures.
-   */
-  static CompositeFuture all(Future<?> f1, Future<?> f2, Future<?> f3, Future<?> f4, Future<?> f5, Future<?> f6) {
-    return CompositeFutureImpl.all(f1, f2, f3, f4, f5, f6);
-  }
 
   /**
    * Like {@link #all(Future, Future)} but with a list of futures.<p>
@@ -111,17 +105,9 @@ public interface Future<T> extends AsyncResult<T> {
   /**
    * Like {@link #any(Future, Future)} but with 5 futures.
    */
-  static CompositeFuture any(Future<?> f1, Future<?> f2, Future<?> f3, Future<?> f4, Future<?> f5) {
-    return CompositeFutureImpl.any(f1, f2, f3, f4, f5);
+  static CompositeFuture any(Future<?>... futures) {
+    return CompositeFutureImpl.any(futures);
   }
-
-  /**
-   * Like {@link #any(Future, Future)} but with 6 futures.
-   */
-  static CompositeFuture any(Future<?> f1, Future<?> f2, Future<?> f3, Future<?> f4, Future<?> f5, Future<?> f6) {
-    return CompositeFutureImpl.any(f1, f2, f3, f4, f5, f6);
-  }
-
   /**
    * Like {@link #any(Future, Future)} but with a list of futures.<p>
    *

@@ -87,18 +87,12 @@ class Checker {
   }
 
   private static ClusterSerializable copyClusterSerializable(ClusterSerializable obj) {
-    logDeveloperInfo(obj);
+    log.logDeveloperInfo(obj);
     return ClusterSerializableUtils.copy(obj);
   }
 
-  private static void logDeveloperInfo(Object obj) {
-    if (log.isDebugEnabled()) {
-      log.debug("Copying " + obj.getClass() + " for shared data. Consider implementing " + Shareable.class + " for better performance.");
-    }
-  }
-
   private static Object copySerializable(Object obj) {
-    logDeveloperInfo(obj);
+    log.logDeveloperInfo(obj);
     return SerializableUtils.fromBytes(SerializableUtils.toBytes(obj), ObjectInputStream::new);
   }
 }

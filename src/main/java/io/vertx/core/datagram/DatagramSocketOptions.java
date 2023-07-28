@@ -33,17 +33,17 @@ public class DatagramSocketOptions extends NetworkOptions {
   /**
    * The default value of loopback disabled = true
    */
-  public static final boolean DEFAULT_LOOPBACK_MODE_DISABLED = true;
+  public static final boolean isLoopbackModeDisabled = true;
 
   /**
    * The default value of multicast disabled = -1
    */
-  public static final int DEFAULT_MULTICAST_TIME_TO_LIVE = -1;
+  public static final int defaultMulticastTTL = -1;
 
   /**
    * The default value of multicast network interface = null
    */
-  public static final String DEFAULT_MULTICAST_NETWORK_INTERFACE = null;
+  public static final String multicastInterface = null;
 
   /**
    * The default value of reuse address = false
@@ -97,9 +97,9 @@ public class DatagramSocketOptions extends NetworkOptions {
 
   private void init() {
     broadcast = DEFAULT_BROADCAST;
-    loopbackModeDisabled = DEFAULT_LOOPBACK_MODE_DISABLED;
-    multicastTimeToLive = DEFAULT_MULTICAST_TIME_TO_LIVE;
-    multicastNetworkInterface = DEFAULT_MULTICAST_NETWORK_INTERFACE;
+    loopbackModeDisabled = isLoopbackModeDisabled;
+    multicastTimeToLive = defaultMulticastTTL;
+    multicastNetworkInterface = multicastInterface;
     ipV6 = DEFAULT_IPV6;
   }
 

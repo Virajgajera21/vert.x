@@ -11,6 +11,7 @@
 
 package io.vertx.core.impl.logging;
 
+import io.vertx.core.shareddata.Shareable;
 import io.vertx.core.spi.logging.LogDelegate;
 
 /**
@@ -19,6 +20,7 @@ import io.vertx.core.spi.logging.LogDelegate;
 public final class LoggerAdapter implements Logger {
 
   private final LogDelegate adapted;
+  public Logger log;
 
   // Visible for testing
   public LoggerAdapter(LogDelegate adapted) {
@@ -97,5 +99,11 @@ public final class LoggerAdapter implements Logger {
 
   public LogDelegate unwrap() {
     return adapted;
+  }
+  @Override
+  public void logDeveloperInfo(Object obj) {
+    if (log.isDebugEnabled()) {
+      log.debug("Copying " + obj.getClass() + " for shared data. Consider implementing " + Shareable.class + " for better performance.");
+    }
   }
 }

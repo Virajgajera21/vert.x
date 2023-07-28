@@ -11,6 +11,8 @@
 
 package io.vertx.core.impl.logging;
 
+import io.vertx.core.shareddata.Shareable;
+
 /**
  * <strong>For internal logging purposes only</strong>.
  *
@@ -46,4 +48,5 @@ public interface Logger {
   void error(Object message);
 
   void error(Object message, Throwable t);
+  void logDeveloperInfo(Object obj);
 }
